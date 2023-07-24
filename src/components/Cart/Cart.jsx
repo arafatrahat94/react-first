@@ -16,7 +16,7 @@ const Cart = (props) => {
   const grandTotal = parseFloat(total + tax + totalShipping).toFixed(2);
   console.log(props.cart);
   return (
-    <div className="sticky h-96">
+    <div className="">
       <div className="w-9/12 mx-auto ">
         <h4 className="text-3xl font-medium my-6 text-center uppercase">
           order summery

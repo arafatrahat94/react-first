@@ -4,6 +4,7 @@ import "./Shopping.css";
 import { data } from "autoprefixer";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
+import { addToDb, getShoppingCart } from "../../utilities/fakedb";
 const Shopping = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
@@ -15,8 +16,14 @@ const Shopping = () => {
   const productAdd = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
+    addToDb(product.id);
     console.log(cart);
   };
+
+  useEffect(() => {
+    const storedCart = getShoppingCart();
+    console.log(storedCart);
+  }, []);
   return (
     <div className=" mt-5 shopContainer grid grid-cols-6 mx-auto">
       <div className="products-container col-span-4">
