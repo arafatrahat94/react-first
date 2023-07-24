@@ -1,9 +1,12 @@
 import React from "react";
 import "./Product.css";
-const Product = (props) => {
-  console.log(props.product);
-  let { img, category, name, price } = props["product"];
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
+const Product = (props) => {
+  // console.log(props.productAdd);
+  let { img, category, name, price } = props["product"];
+  const productAdd = props.productAdd;
   return (
     <div className="">
       <div>
@@ -21,11 +24,12 @@ const Product = (props) => {
           </div>
           <div className="p-6 mx-auto bottom-0  pt-0">
             <button
+              onClick={() => productAdd(props.product)}
               className="select-none focus:ring-2 ring-gray-600 rounded-lg bg-gray-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md   hover:bg-white hover:border-2 border-gray-600 hover:text-gray-600 transition-all hover:shadow-lg hover:shadow-gray-700 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
               data-ripple-light="true"
             >
-              Add To Cart
+              Add To Cart <FontAwesomeIcon icon={faCartShopping} />
             </button>
           </div>
         </div>
