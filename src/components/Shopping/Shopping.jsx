@@ -22,12 +22,22 @@ const Shopping = () => {
 
   useEffect(() => {
     const storedCart = getShoppingCart();
-    console.log(storedCart);
-  }, []);
+    const savedCart = [];
+    for (let id in storedCart) {
+      const savedProducts = products.find((product) => product.id === id);
+      if (savedProducts) {
+        const quantity = storedCart[id];
+        savedProducts.quantity = quantity;
+        savedCart.push(savedProducts);
+      }
+      console.log(savedProducts);
+    }
+    setCart(savedCart);
+  }, [products]);
   return (
-    <div className=" mt-5 shopContainer grid grid-cols-6 mx-auto">
+    <div className=" mt-5 shopContainer grid grid-cols-1 lg:grid-cols-6 mx-auto">
       <div className="products-container col-span-4">
-        <div className="grid grid-cols-3 gap-y-4 max-w-5xl gap-x-0 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 max-w-5xl gap-x-0 mx-auto">
           {products.map((product) => (
             <Product
               product={product}

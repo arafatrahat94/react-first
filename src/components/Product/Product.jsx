@@ -10,8 +10,8 @@ const Product = (props) => {
   return (
     <div className="">
       <div>
-        <div className="relative product flex w-80 h-[550px] my-auto flex-col rounded-xl mx-auto bg-clip-border text-gray-700 ring-2 ring-gray-400">
-          <div className="relative mx-auto my-5 w-72 h-72 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
+        <div className="lg:relative product flex w-80 h-[550px] my-auto flex-col rounded-xl mx-auto bg-clip-border text-gray-700 ring-2 ring-gray-400">
+          <div className="lg:relative mx-auto my-5 w-72 h-72 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
             <img src={img} className="flex-shrink-0 w-full" />
           </div>
           <div className="p-6">

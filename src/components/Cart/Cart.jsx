@@ -3,8 +3,11 @@ import React from "react";
 const Cart = (props) => {
   const cart = props.cart;
   let total = 0;
+  let quantitya = 0;
   for (let product of cart) {
-    total = total + product.price;
+    product.quantity = product.quantity || 1;
+    total = total + product.price * product.quantity;
+    quantitya = quantitya + product.quantity;
     // console.log(total);
   }
   let totalShipping = 0;
@@ -13,7 +16,7 @@ const Cart = (props) => {
     // console.log(totalShipping);
   }
   const tax = ((total * 7) / 100).toFixed(2);
-  const grandTotal = parseFloat(total + tax + totalShipping).toFixed(2);
+  const grandTotal = (total + parseFloat(tax) + totalShipping).toFixed(2);
   console.log(props.cart);
   return (
     <div className="">
@@ -22,7 +25,7 @@ const Cart = (props) => {
           order summery
         </h4>
         <h1 className="font-medium mt-28 text-2xl">
-          Selected Items: {cart.length}
+          Selected Items: {quantitya}
         </h1>
         <h1 className="font-medium mt-2 text-2xl">Total Price: ${total}</h1>
         <h1 className="font-medium mt-2 text-2xl">
